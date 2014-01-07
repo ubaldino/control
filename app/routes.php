@@ -26,7 +26,7 @@ Route::get( 'usuario' , 'UsuarioController@panel' );
 Route::post( 'usuario/{id}/ingreso' , 'UsuarioController@ingreso' );
 Route::post( 'usuario/{id}/salida' , 'UsuarioController@salida' );
 
-Route::get( 'admin', 'AdminController@panel' );
+Route::get( 'control', 'AdminController@panel' );
 
 Route::get('test', function(){
 	$html2 = <<<EOF
