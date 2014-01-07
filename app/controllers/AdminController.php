@@ -9,7 +9,7 @@ class AdminController extends BaseController {
     }
 
 	public function panel(){
-		return View::make( 'admin.panel' );
+		return View::make( 'admin.control' , array( 'usuarios' => Usuario::all() ) );
 	}
 
 }

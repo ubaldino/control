@@ -7,8 +7,22 @@ class UsuarioController extends BaseController {
         $this->beforeFilter('auth' );
     }
 
+    public function ingreso( $id ){
+    	$datos = array( 
+	    	'id_usuario' => $id,
+	    	'ingreso' => date('Y-m-d H:i:s')
+	    	);
+    	$usuario = PlanillaTrabajo::create( $datos );
+    	return Redirect::to('/');
+    }
+
+    public function salida( $id ){
+
+    	return "salida";
+    }
+
 	public function panel(){
-    	return  View::make( 'usuarios.panel' );
+    	return  View::make( 'usuarios.listar' , array( 'usuarios' => Usuario::all() ) );
 	}
 
 	public function index(){

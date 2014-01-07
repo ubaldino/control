@@ -33,9 +33,15 @@ App::after(function($request, $response)
 |
 */
 
-Route::filter('auth', function()
-{
-	if (Auth::guest()) return Redirect::guest('login');
+Route::filter('auth', function(){
+    if ( Auth::guest() )
+    	return Redirect::to('/')->with('mensaje', 'Debes identificarte primero.');;
+});
+
+Route::filter('admin', function(){
+    if ( Auth::check() and Auth::user()->usu_login != 'admin'){
+    	return Redirect::to('usuario');
+    }
 });
 
 

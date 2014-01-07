@@ -9,9 +9,9 @@ class TablaPlanillaTrabajo extends Migration {
 		Schema::create('planilla_trabajo', function(Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id');
-	        $table->double('sueldo')->nullable();
-	        $table->dateTime('ingreso')->nullable();
-	        $table->dateTime('salida')->nullable();
+			$table->integer('id_usuario');
+	        $table->timestamp('ingreso');
+	        $table->timestamp('salida')->nullable();
 	        $table->timestamps();
 		});
 	}
@@ -19,5 +19,4 @@ class TablaPlanillaTrabajo extends Migration {
 	public function down() {
 		Schema::drop("planilla_trabajo");
 	}
-
 }
